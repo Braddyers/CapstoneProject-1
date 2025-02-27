@@ -32,6 +32,11 @@ class ReviewTicket(TicketData):
     def __init__(self, ticket_number, task_number, tasked_user, task_title, title_description, date_time_assigned, due_date, completed_yes_no):
         super().__init__(ticket_number, task_number, task_title, title_description, date_time_assigned, due_date, completed_yes_no)
         date_time_submitted = datetime.now()
+        admin_message = ""
+        if date_time_submitted > due_date:
+            admin_message = f"{tasked_user}'s task is late"
+            
+
         return print(
             "________________________________________________________" +
             "________________________________________________________\n\n" +
@@ -39,7 +44,7 @@ class ReviewTicket(TicketData):
             f"Assigned to:               {tasked_user}\n" +
             f"Due date:                  {due_date}\n" +
             f"Date and time submitted: \n{date_time_submitted}\n"
-            f"                " +
+            f"                {admin_message}" +
             "________________________________________________________" +
             f"{ticket_number}" +
             "________________________________________________________\n"

@@ -41,7 +41,8 @@ def load_personal_data(file_path):
             print(personal_data)
             print(index)
     return personal_data_list
-        
+
+# PRINT TICKET FUNCTION       
 def print_task_ticket(file_path) -> str:
     for task_number, tasked_user, task_title, task_description, date_time_assigned, due_date, task_ticket_number in file_path:
         return print(

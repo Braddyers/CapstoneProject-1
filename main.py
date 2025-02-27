@@ -9,7 +9,7 @@ from datetime import datetime
 usernames_passwords_dictionary = {}
 
 # Open user.txt and put contents into dictionary (key are usernames, values are passwords)
-with open("user.txt", "r") as file:
+with open("personal_data.txt", "r") as file:
     for line in file:
         usernames, passwords = line.split(", ")
         usernames_passwords_dictionary[usernames] = passwords.replace("\n", "")
@@ -37,9 +37,10 @@ while True:
                     menu = input(                                        
                         "\nPlease select one of the following options: " +         
                         "\nr - register user" + 
-                        "\na - add task ticket" +
+                        "\na - add task" +
                         "\nva - view all tasks" + 
                         "\nvm - view my tasks" +
+                        "\nct - submit completed task" +
                         "\nds - display statistics" +
                         "\ne - exit\n\n"
                         ).lower()                                                       # Make input lowercase if not lowercase
@@ -49,6 +50,7 @@ while True:
                         "\na - add task" +
                         "\nva - view all tasks" + 
                         "\nvm - view my tasks" +
+                        "\nct - submit completed task" +
                         "\ne - exit\n\n"
                         ).lower()  
 
@@ -106,7 +108,7 @@ while True:
                         raw_date_input = input("\nWhat is the task's due date (DDMMYYYY)?\n\n")
                         try:
                             parsed_date_input = datetime.strptime(raw_date_input, "%d%m%Y")
-                            task_due_date = parsed_date_input.strftime("%d %b %Y")
+                            due_date = parsed_date_input.strftime("%d %b %Y")
                             break
                         except ValueError:
                             print("\nInvalid date format. Please try again.")
@@ -115,12 +117,13 @@ while True:
                     current_date = datetime.now()
                     date_assigned = current_date.strftime("%d %b %Y")
                     
-                    completed_yes_no = "No"
+                    task_status = "Unsubmitted"
                     
                     # Write task data items to tasks.txt
                     with open("tasks.txt", "a") as file:
-                        file.write(f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {task_due_date}, {completed_yes_no}")
-                
+                        file.write(f"\n{tasked_user}, {task_title}, {task_description}, {date_assigned}, {due_date}, {task_status}")
+
+                    # ISSUE TASK TICKET TO USER VIA EMAIL OR GOOGLE CALENDER 
                 
                 # View all tasks in tasks.txt
                 elif menu == "va":
@@ -137,8 +140,8 @@ while True:
                         task_title = task[1]
                         task_description = task[2]
                         date_assigned = task[3]
-                        task_due_date = task[4]
-                        completed_yes_no = task[5]
+                        due_date = task[4]
+                        task_status = task[5]
                         # Required format
                         print(
                             "______________________________________________________" +
@@ -146,8 +149,8 @@ while True:
                             f"Task:                      {task_title}\n" + 
                             f"Assigned to:               {tasked_user}\n" + 
                             f"Date assigned:             {date_assigned}\n" + 
-                            f"Due date:                  {task_due_date}\n" + 
-                            f"Task Complete?             {completed_yes_no}\n" + 
+                            f"Due date:                  {due_date}\n" + 
+                            f"Task Complete?             {task_status}\n" + 
                             f"Task description:\n {task_description}\n" + 
                             "_______________________________________________________" +
                             "________________________________________________________\n"
@@ -169,8 +172,8 @@ while True:
                         task_title = task[1]
                         task_description = task[2]
                         date_assigned = task[3]
-                        task_due_date = task[4]
-                        completed_yes_no = task[5]
+                        due_date = task[4]
+                        task_status = task[5]
                         
                         # Show only the tasks of logged in user
                         if tasked_user == username_input:                                                                                                   
@@ -181,8 +184,8 @@ while True:
                                 f"Task:                      {task_title}\n" + 
                                 f"Assigned to:               {tasked_user}\n" + 
                                 f"Date assigned:             {date_assigned}\n" + 
-                                f"Due date:                  {task_due_date}\n" + 
-                                f"Task Complete?             {completed_yes_no}\n" + 
+                                f"Due date:                  {due_date}\n" + 
+                                f"Task Complete?             {task_status}\n" + 
                                 f"Task description:\n {task_description}\n" + 
                                 "_________________________________________________________________________" +
                                 "_______________________________________\n"
@@ -192,7 +195,19 @@ while True:
                     if not any(task[0] == username_input for task in task_data):
                         print("No tasks have been assigned to you yet.\n")
 
-
+                
+                # Submit completed task
+                elif menu == "ct":
+                    
+                    date_time_submitted = datetime.now()
+                    print(date_time_submitted)
+                    
+                    '''if date_time_submitted > due_date:
+                        print("This task is late.")
+                    else:
+                        pass'''
+                
+                    
                 # View total number of tasks and users, only if you are admin
                 elif menu == "ds" and username_input == "admin":
 
