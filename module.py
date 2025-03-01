@@ -20,7 +20,7 @@ def load_task_data(file_path):
 def load_user_data(file_path):
     review_ticket_list = []
     with open(file_path, "r") as file:
-        for index, line in enumerate(file, start = 1):
+        for line in enumerate(file, start = 1):
             review_data = line.strip().split(", ")
             review_ticket_list.append(review_data)
             
