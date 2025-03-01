@@ -43,7 +43,7 @@ with open("review_task_data.txt", "r") as file:
     for line in file:
         raw_review_data = line.strip().split(", ")
         review_task_list.append(raw_task_data)
-        print(f"3.A \n{review_task_list}")
+        #print(f"3.A \n{review_task_list}")
 
 # B
 review_task_list = []
@@ -51,4 +51,4 @@ with open("task_data.txt", "r") as file:
     for index, line in enumerate(file, start = 1):
         raw_review_task_data = line.strip().split(", ")
         review_task_list.append(raw_review_task_data)
-        print(f"3.B. \n{review_task_list}")
+        #print(f"3.B. \n{review_task_list}")
