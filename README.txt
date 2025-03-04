@@ -1,16 +1,16 @@
 README
 
-Installation guide
+Installation guide:
 Basic user manual:
-common usages:
+Common usages:
 
 This is a list of formatting for various files and outputs:
 
 personal_data.txt format:
-[[username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str], 
-[username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str]]
+[[index: int, username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str], 
+[index: int, username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str]]
 
-user_data.txt format:
+task_data.txt format:
 [[username: str, due_date_u: str, time_recieved: str], 
 [username: str, due_date:_u str, time_recieved: str]]
 

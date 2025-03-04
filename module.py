@@ -44,7 +44,7 @@ def load_review_task_list(file_path):
             review_task_list.append(raw_review_task_data)  # Append the list to personal_data_list
     return review_task_list
 
-# PRINT TICKET FUNCTION       
+# PRINT TASK TICKET FUNCTION       
 def print_task_ticket(file_path) -> str:
     for task_number, tasked_user, task_title, task_description, date_time_assigned, due_date, task_ticket_number in file_path:
         return print(
