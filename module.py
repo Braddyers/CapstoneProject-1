@@ -6,6 +6,24 @@ from datetime import datetime
 # Read and convert personal_data.txt into a nested list WHICH METHOD BELOW IS MORE USEFUL?
 def load_personal_data(file_path):
     personal_data_list = []
+    with open("personal_data.txt", "r") as file:
+        for line in file:
+            keys = line.strip().split(", ")
+            personal_key_values = {
+                "index": int(keys[0]),
+                "username": str(keys[1]),
+                "login_password": str(keys[2]),
+                "first_name": str(keys[3]),
+                "surname": str(keys[4]),
+                "age": int(keys[5]),
+                "date_registered": str(keys[6]),
+                "email_address": str(keys[7])
+            }
+            personal_data_list.append(personal_key_values)
+    return personal_data_list
+
+def load_personal_data(file_path):
+    personal_data_list = []
     with open(file_path, "r") as file:
         for line in file:
             raw_personal_data = line.strip().split(", ")  # Split each line into a list

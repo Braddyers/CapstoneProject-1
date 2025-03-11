@@ -13,17 +13,16 @@ with open("personal_data.txt", "r") as file:
         p = line.strip().split(", ")
         personal_key_values = {
             "index": int(p[0]),
-            "username": p[1],
-            "login_password": p[2],
-            "first_name": p[3],
-            "surname": p[4],
-            "age": p[5],
-            "date_registered": p[6],
-            "email_address": p[7]
+            "username": str(p[1]),
+            "login_password": str(p[2]),
+            "first_name": str(p[3]),
+            "surname": str(p[4]),
+            "age": int(p[5]),
+            "date_registered": str(p[6]),
+            "email_address": str(p[7])
         }
         personal_data_list.append(personal_key_values)
 print(f"1.A \n{personal_data_list}\n")
-
 
 '''
 # task_data.txt format:
@@ -39,12 +38,12 @@ with open("task_data.txt", "r") as file:
         t = line.strip().split(", ")
         task_key_values = {
             "index": int(t[0]),
-            "username": t[1],
-            "task_title": t[2],
-            "task_description": t[3],
-            "date_time_assigned": t[4],
-            "task_due_date": t[5],
-            "completed_yes_no": t[6],
+            "username": str(t[1]),
+            "task_title": str(t[2]),
+            "task_description": str(t[3]),
+            "date_time_assigned": str(t[4]),
+            "task_due_date": str(t[5]),
+            "completed_yes_no": str(t[6]),
         }
         task_data_list.append(task_key_values)
 print(f"1.B \n{task_data_list}\n")
@@ -63,9 +62,9 @@ with open("task_data.txt", "r") as file:
         r = line.strip().split(", ")
         review_key_values = {
             "index": int(r[0]),
-            "username": r[1],
-            "task_due_date": r[2],
-            "task_sub_time": r[3],
+            "username": str(r[1]),
+            "task_due_date": str(r[2]),
+            "task_sub_time": str(r[3]),
         }
         review_task_list.append(review_key_values)
 print(f"1.C \n{review_task_list}\n")
