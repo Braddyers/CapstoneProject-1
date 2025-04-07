@@ -13,8 +13,8 @@ class TicketData:
         self.completed_yes_no = completed_yes_no
 
 class TaskTicket(TicketData):
-    def __init__(self,ticket_number,task_number,tasked_user,task_title,task_description,date_time_assigned,task_due_date,completed_yes_no):
-        super().__init__(ticket_number,task_number,tasked_user,task_title,task_description,date_time_assigned,task_due_date,completed_yes_no)
+    def __init__(self, ticket_number, task_number, tasked_user, task_title, task_description, date_time_assigned, task_due_date, completed_yes_no):
+        super().__init__(ticket_number, task_number, tasked_user, task_title, task_description, date_time_assigned, task_due_date, completed_yes_no)
         return print(
             "\n________________________________________________________" +
             "________________________________________________________\n\n" +

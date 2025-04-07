@@ -4,9 +4,9 @@
 Personal_data.txt format:
 [[index: int, username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str], 
 [index: int, username: str, login_password: str, first_name: str, surname: str, age: str, date_registered: str, email_address: str]]
-
 '''
-# A - Load personal data method
+
+# A - Load personal data metho
 personal_data_list = []
 with open("personal_data.txt", "r") as file:
     for line in file:
@@ -57,7 +57,7 @@ print(f"1.B \n{task_data_list}\n")
 
 # C - Load review task data
 review_task_list = []
-with open("task_data.txt", "r") as file:
+with open("review_task_data.txt", "r") as file:
     for line in file:
         r = line.strip().split(", ")
         review_key_values = {
@@ -87,18 +87,18 @@ with open("task_data.txt", "r") as file:
         }
         task_data_list.append(task_key_values)
 
+print(f"2.A \nYou have {len(task_data_list)} tasks due, all listed below:")
 for task_ticket in task_data_list:
-        print("\nTask Ticket:" +
-            "\n_______________________________________________________" +
-            f"T T {task_ticket["index"]}"
-            "_________________________________________________________\n\n" +
-            f"Task:                      {task_ticket["task_title"]}\n" + 
-            f"Date assigned:             {task_ticket["date_time_assigned"]}\n" + 
-            f"Task due date:             {task_ticket["task_due_date"]}\n" + 
-            f"Task description:        \n{task_ticket["task_description"]}\n" +
-            "________________________________________________________" +
-            "________________________________________________________\n"
-            )
+    print("\n__________________________________" +
+        f"TT{task_ticket["index"]}"
+        "_________________________________\n\n" +
+        f"Task:                      {task_ticket["task_title"]}\n" + 
+        f"Date assigned:             {task_ticket["date_time_assigned"]}\n" + 
+        f"Task due date:             {task_ticket["task_due_date"]}\n" + 
+        f"Task description:        \n{task_ticket["task_description"]}\n" +
+        "____________________________________" +
+        "____________________________________"
+        )
 '''
 # c - Print task ticket (TT) FOR ADMIN
 task_data_list = []
