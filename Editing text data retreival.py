@@ -100,7 +100,7 @@ for task_ticket in task_data_list:
         "____________________________________"
         )
 '''
-# c - Print task ticket (TT) FOR ADMIN
+
 task_data_list = []
 with open("task_data.txt", "r") as file:
     for line in file:
@@ -116,19 +116,19 @@ with open("task_data.txt", "r") as file:
         }
         task_data_list.append(task_key_values)
 
-for review_ticket in task_data_list:
-    print(
-        "2.A \nTask Ticket:\n" +
-        "\n_______________________________________________________" +
-        "f"TT{index}"
-        "_________________________________________________________\n\n" +
-        f"Username:                  {username}\n" +
-        f"Task:                      {task_title}\n" + 
-        f"Date assigned:             {date_time_assigned}\n" + 
-        f"Task due date:             {task_due_date}\n" +
-        "________________________________________________________" +
-        "________________________________________________________\n"
+print(f"2.A \nYou have {len(task_data_list)} tasks due, all listed below:")
+for task_ticket in task_data_list:
+    print("\n__________________________________" +
+        f"TT{task_ticket["index"]}"
+        "_________________________________\n\n" +
+        f"Task:                      {task_ticket["task_title"]}\n" + 
+        f"Date assigned:             {task_ticket["date_time_assigned"]}\n" + 
+        f"Task due date:             {task_ticket["task_due_date"]}\n" + 
+        f"Task description:        \n{task_ticket["task_description"]}\n" +
+        "____________________________________" +
+        "____________________________________"
         )
+
 '''
 
 # C - Print review ticket (RT) FOR ADMIN
